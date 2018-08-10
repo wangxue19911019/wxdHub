@@ -1,8 +1,8 @@
 <template>
   <div id="layout">
-    <top-header></top-header>
+    <top-header @emitCollapse="emitCollapse"></top-header>
     <div id="content">
-      <left-menu></left-menu>
+      <left-menu :isCollapse="isCollapse"></left-menu>
       <div id="rightContent">
         <bread-crumb></bread-crumb>
         <div id="appContent">
@@ -19,6 +19,16 @@
   import BreadCrumb from "../../components/BreadCrumb"
 
   export default {
+    data() {
+      return {
+        isCollapse: true
+      }
+    },
+    methods: {
+      emitCollapse(data){
+        this.isCollapse = data
+      }
+    },
     components: {
       TopHeader,
       LeftMenu,
