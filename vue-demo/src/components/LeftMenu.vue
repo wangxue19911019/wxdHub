@@ -54,6 +54,9 @@
   .el-menu-dark {
     background: #324157;
     border-right: 0;
+    &:not(.el-menu--collapse){
+      min-width: 200px;
+    }
     .el-submenu__title{
       color: #bfcbd9 !important;
       &:hover{
