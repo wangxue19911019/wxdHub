@@ -6,6 +6,11 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+/* element-ui引用 */
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
