@@ -14,6 +14,7 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   import TopHeader from "../../components/TopHeader"
   import LeftMenu from "../../components/LeftMenu"
   import BreadCrumb from "../../components/BreadCrumb"
@@ -21,8 +22,15 @@
   export default {
     data() {
       return {
-        isCollapse: true
+        isCollapse: false
       }
+    },
+    created(){
+
+    },
+    computed: {
+      ...mapState({
+      })
     },
     methods: {
       emitCollapse(data){

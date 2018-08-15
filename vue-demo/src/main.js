@@ -6,6 +6,16 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+/* vuex引用 */
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+import store from './store'
+
+/* axios引用 */
+import Api from './api'
+Vue.prototype.$http = Api
+
 /* element-ui引用 */
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -14,6 +24,7 @@ Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import layout from '@/pages/layout/layout'
 import home from '@/pages/home/home'
+import mypage1 from '@/pages/webpages/mypage1'
 
 Vue.use(Router)
 
@@ -27,7 +27,11 @@ export default new Router({
           path: '/home',
           name: '首页',
           component: home
-        }
+        },{
+          path: '/mypage1',
+          name: '',
+          component: mypage1
+        },
       ]
     }
   ]

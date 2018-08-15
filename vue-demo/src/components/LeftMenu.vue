@@ -1,32 +1,24 @@
 <template>
   <div id="left-menu">
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo el-menu-dark" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-message"></i>
-          <span slot="title">导航一</span>
-        </template>
-        <el-menu-item-group>
-          <span slot="title">分组一</span>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <span slot="title">选项4</span>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
+    <el-menu router default-active="1-1" class="el-menu-vertical-demo el-menu-dark" :collapse="isCollapse" :unique-opened="true">
+      <template v-for="(item,index) in menuList">
+
+        <el-menu-item v-if="!item.noDropdown" :index="item.path">
+          <i :class="item.icon"></i>
+          <span slot="title" v-text="item.name"></span>
+        </el-menu-item>
+
+        <el-submenu v-if="item.noDropdown" :index="item.id">
+          <template slot="title">
+            <i :class="item.icon"></i>
+            <span slot="title" v-text="item.name"></span>
+          </template>
+          <template v-for="(c,index) in item.children">
+            <el-menu-item :index="c.path" v-text="c.name"></el-menu-item>
+          </template>
         </el-submenu>
-      </el-submenu>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3">
-        <i class="el-icon-setting"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item>
+
+      </template>
     </el-menu>
   </div>
 </template>
@@ -36,15 +28,57 @@
       props: ["isCollapse"],
       data() {
         return {
-        };
+          menuList:[
+            {
+              id: "1",
+              name: "导航一",
+              icon: "el-icon-message",
+              noDropdown: true,
+              children: [{
+                name: "选项一",
+                path: "/home"
+              },{
+                name: "选项二",
+                path: "/mypage1"
+              }]
+            },{
+              id: "2",
+              name: "导航二",
+              icon: "el-icon-menu",
+              noDropdown: true,
+              children: [{
+                name: "选项一",
+                path: "21"
+              },{
+                name: "选项二",
+                path: "22"
+              }]
+            },
+            {
+              id: "3",
+              name: "导航三",
+              icon: "el-icon-message",
+              noDropdown: true,
+              children: [{
+                name: "选项一",
+                path: "31"
+              },{
+                name: "选项二",
+                path: "33"
+              }]
+            },
+            {
+              id: "4",
+              name: "导航四",
+              icon: "el-icon-setting",
+              noDropdown: false,
+              path: "41"
+            }
+          ]
+        }
       },
       methods: {
-        handleOpen(key, keyPath) {
-          console.log(key, keyPath);
-        },
-        handleClose(key, keyPath) {
-          console.log(key, keyPath);
-        }
+
       },
       watch: {
       }
