@@ -63,6 +63,8 @@
         overflow-y: auto;
         background: #fff;
         margin-top: 10px;
+        padding: 20px;
+        box-sizing: border-box;
       }
     }
   }

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import layout from '@/pages/layout/layout'
 import home from '@/pages/home/home'
 import mypage1 from '@/pages/webpages/mypage1'
+import mypage2 from '@/pages/webpages/mypage2'
 
 Vue.use(Router)
 
@@ -31,6 +32,10 @@ export default new Router({
           path: '/mypage1',
           name: '',
           component: mypage1
+        },{
+          path: '/mypage2',
+          name: '',
+          component: mypage2
         },
       ]
     }

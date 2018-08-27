@@ -16,6 +16,9 @@ import store from './store'
 import Api from './api'
 Vue.prototype.$http = Api
 
+/* mockjs引用 */
+require('@/api/mock')
+
 /* element-ui引用 */
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

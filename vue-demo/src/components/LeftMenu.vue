@@ -47,11 +47,11 @@
               icon: "el-icon-menu",
               noDropdown: true,
               children: [{
-                name: "选项一",
-                path: "21"
+                name: "es6map",
+                path: "/mypage1"
               },{
-                name: "选项二",
-                path: "22"
+                name: "draggable",
+                path: "/mypage2"
               }]
             },
             {
